@@ -329,3 +329,62 @@ function init() {
 }
 
 document.addEventListener("DOMContentLoaded", init);
+
+
+// testimonies
+const testimonies = [
+  {
+    name: "Juan Dela Cruz",
+    role: "Resident Volunteer",
+    photo: "assets/project-sinag-logo.png",
+    message:
+      "Project SINAG encouraged our community to work together and take part in keeping our surroundings clean, safe, and sustainable."
+  },
+  {
+    name: "Maria Santos",
+    role: "Community Member",
+    photo: "assets/project-sinag-logo.png",
+    message:
+      "Through the clean-up drive and community activities, we learned that small actions can create a big impact when everyone participates."
+  },
+  
+  {
+    name: "Barangay Volunteer",
+    role: "Project SINAG Participant",
+    photo: "assets/project-sinag-logo.png",
+    message:
+      "The program helped promote discipline, bayanihan, and responsibility among residents, especially in caring for the environment."
+  }
+];
+
+const testimonialsGrid = document.getElementById("testimonialsGrid");
+
+if (testimonialsGrid) {
+  testimonies.forEach(function (testimony) {
+    const card = document.createElement("article");
+
+    card.className = "testimony-card";
+
+    card.innerHTML = `
+      <img 
+        src="${testimony.photo}" 
+        alt="Photo of ${testimony.name}" 
+        class="testimony-photo"
+      >
+
+      <p class="testimony-text">
+        “${testimony.message}”
+      </p>
+
+      <div class="testimony-name">
+        ${testimony.name}
+      </div>
+
+      <div class="testimony-role">
+        ${testimony.role}
+      </div>
+    `;
+
+    testimonialsGrid.appendChild(card);
+  });
+}
